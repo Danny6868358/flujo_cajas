@@ -19,10 +19,12 @@ class ActivoCaja(models.Model):
 class Proveedor(models.Model):
     nombre_proveedor = models.CharField(max_length=100)
 
+
 class Obligaciones(models.Model):
     nombre = models.ForeignKey(Proveedor, on_delete=models.CASCADE)
     falta_pagar_dinero = models.DecimalField(decimal_places=2)
     falta_pagar_dias = models.CharField(max_length=30, choices=properties.TIPO_TIEMPO)
+    valor_tiempo = models.PositiveIntegerField()
     descripcion = models.CharField(max_length=250)
     tasa = models.DecimalField(decimal_places=2)
 
